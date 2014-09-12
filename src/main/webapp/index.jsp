@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" >
-<title>个人神器 - Welcome</title>
+<title>Habit / Keep - Welcome</title>
 <link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
 </head>
 <body>

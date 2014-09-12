@@ -3,7 +3,7 @@
 
 <%
 	String pageName = request.getParameter("pageModule");
-	response.getWriter().print("当前页面名称是： "+pageName);
+	//response.getWriter().print("当前页面名称是： "+pageName);
 %>    
     
 <link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >

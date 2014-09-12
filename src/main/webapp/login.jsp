@@ -4,13 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" >
-<title>个人神器 - Welcome</title>
+<title>My Keep - Welcome</title>
 <link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
 </head>
 <body>
 <jsp:include page="head.jsp"></jsp:include>
 <div class="container">
-	<h1>Welcome To Fish 1! Please login</h1>
+	<h1>欢引使用 My Keep，需要先登录。</h1>
 	<form action="/login" method="post" class="form-inline">
 		<div class="form-group">
 			<label for="emailIpt" class="sr-only">账户</label>

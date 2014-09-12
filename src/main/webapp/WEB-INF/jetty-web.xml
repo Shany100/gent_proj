@@ -16,9 +16,10 @@ detected.
   <Set name="maxFormContentSize">200000</Set>
   <Set name="extractWAR">true</Set>
   <Set name="copyWebDir">false</Set>
+  <!--
   <Set name="virtualHosts">
     <Array type="String">
       <Item>keep.com</Item>
     </Array>
-  </Set>
+  </Set> -->
 </Configure>

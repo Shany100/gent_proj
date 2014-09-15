@@ -21,4 +21,13 @@
     <select id="countEmail" parameterType="String" resultType="int">
     	select count(email) from user where email=#{email}
     </select>
+    <select id="checkUser" parameterType="User" resultType="User">
+    	select id, username, email, password from user where 1=1
+    	 <if test="email != null">  
+	        and email = #{email}  
+	    </if> 
+	     <if test="password != null">  
+	        and password = #{password}  
+	    </if> 
+    </select>
 </mapper>  

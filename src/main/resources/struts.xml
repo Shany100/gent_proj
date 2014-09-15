@@ -18,9 +18,12 @@
 			<result>/index.jsp</result>
 		</action>
 		<action name="login" class="com.jiang.gent.action.UserAction" method="login">
-			<result name="success">success.jsp</result>
+			<result name="success" type="redirect">success.jsp</result>
 			<result name="login">/login.jsp</result>
 			<result name="list">list.jsp</result>
+		</action>
+		<action name="logout" class="com.jiang.gent.action.UserAction" method="logout">
+			<result name="login" type="redirect">/login.jsp</result>
 		</action>
 		<action name="data_*" class="com.jiang.gent.action.UserAction" method="{1}">
 			<result name="success">success.jsp</result>

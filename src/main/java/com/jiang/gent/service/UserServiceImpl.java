@@ -1,6 +1,7 @@
 package com.jiang.gent.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -31,4 +32,23 @@ public class UserServiceImpl {
 		return flag;
 	}
 	
+	public User checkUser(User user){
+		User u = null;
+		
+		SqlSession session = null;
+		try {
+			session = MybatisUtils.getSession();
+			UserDao ud = session.getMapper(UserDao.class);
+			List<User> list = ud.checkUser(user);
+			if(null != list && list.size()>0){
+				u = list.get(0);
+			}
+			session.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return u;
+	}
 }

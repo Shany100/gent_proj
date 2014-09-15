@@ -2,7 +2,9 @@ package com.jiang.gent.test;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -30,7 +32,8 @@ public class DaoTest {
 	    }  
 	  }  
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
+		/*
 		User user = new User();
 		user.setEmail("shanelman@gmail.com");
 		user.setPassword("123456");
@@ -40,17 +43,25 @@ public class DaoTest {
 			session = MybatisUtils.getSession();
 			//UserDao userDao = session.getMapper(UserDao.class);
 			//userDao.insertUser(user);
-			int count = session.insert("com.jiang.gent.dao.UserDao.insertUser", user); // 返回更新条数
-			System.out.println(user.getId());
-			//User result = MybatisUtils.getSession().selectOne("com.jiang.gent.dao.UserDao.getUser",1);
-			//System.out.println(result.getEmail());
-			session.commit();// session commit is required while insert operation.
+			//int count = session.insert("com.jiang.gent.dao.UserDao.insertUser", user); // 返回更新条数
+			//System.out.println(user.getId());
+			User result = MybatisUtils.getSession().selectOne("com.jiang.gent.dao.UserDao.getUser",10);
+			System.out.println("邮箱: "+result.getEmail());
+			//session.commit();// session commit is required while insert operation.
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 			session.close();
-		}
+		} */
+		User user = new User();
+		user.setEmail("shanelman@gmail.com");
+		user.setPassword("123456");
+		ArrayList<User> list = null;
+		SqlSession session = null;
+		session = MybatisUtils.getSession();
+		list = (ArrayList) session.selectList("com.jiang.gent.dao.UserDao.checkUser", user);
+		System.out.println(list.get(0).getId());
 	}
 
 }

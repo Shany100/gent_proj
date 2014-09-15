@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -121,16 +122,31 @@ public class UserAction extends ActionSupport {
 	}
 	
 	public String login() throws Exception{
-		
-		System.out.println(this.userName + " / " + this.password);
-		if(null != this.userName && "test@meizu.com".equals(this.userName)){
-			ActionContext.getContext().getSession().put("userName", this.userName);
-			return this.SUCCESS;
+		LOG.info(userName, password);
+		HttpServletRequest request = ServletActionContext.getRequest();
+		if(null != this.userName && null != password){
+			User user = new User();
+			user.setEmail(this.userName);
+			user.setPassword(this.password);
+			User pUser = new UserServiceImpl().checkUser(user);
+			if(pUser != null && pUser.getId() > 0 ){
+				request.getSession().setAttribute("keep_user", pUser);
+				return this.SUCCESS;
+			}else{
+				
+				request.setAttribute("test", true);
+				return "login";
+			}
 		}else{
+			request.setAttribute("test", true);
 			return "login";
 		}
 	}
-	
+	public String logout(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		request.getSession().removeAttribute("keep_user");
+		return "login";
+	}
 	public String list() throws Exception{
 		
 		return "list";

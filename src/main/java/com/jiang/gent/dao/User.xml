@@ -18,4 +18,7 @@
         where  
             id = #{id}  
     </select>  
+    <select id="countEmail" parameterType="String" resultType="int">
+    	select count(email) from user where email=#{email}
+    </select>
 </mapper>  

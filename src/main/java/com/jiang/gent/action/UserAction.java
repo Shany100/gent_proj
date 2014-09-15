@@ -88,6 +88,22 @@ public class UserAction extends ActionSupport {
 		this.responseMsg(resultMap);
 	}
 	
+	/**
+	 * 检测邮箱是否已经存在
+	 * @return
+	 */
+	public boolean checkEmail(String email){
+		boolean flag = true;
+		
+		if(email.equals("")){
+			flag = false;
+		}else{
+			// 查询输入的邮箱号是否存在
+		}
+		
+		return flag;
+	}
+	
 	public void responseMsg(Map resultMap){
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html");

@@ -11,4 +11,10 @@
         where  
             id = #{id}  
     </select>  
+	<insert id="insertEvent" parameterType="Event" useGeneratedKeys="false" keyProperty="id">
+		insert into `event` (name,userid,create_time,note) values(#{name},#{userId},#{createTime},#{note});
+		<selectKey resultType="int" keyProperty="id" order="AFTER"> 
+			select LAST_INSERT_ID()
+		</selectKey>
+	</insert>
 </mapper>  

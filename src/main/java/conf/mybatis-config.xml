@@ -20,7 +20,7 @@
     </environments>  
     
     <mappers>  
-        <mapper resource="com/jiang/gent/bean/Event.xml"/>  
+        <mapper resource="com/jiang/gent/dao/Event.xml"/>  
         <mapper resource="com/jiang/gent/dao/User.xml"/>  
     </mappers>
 </configuration>  

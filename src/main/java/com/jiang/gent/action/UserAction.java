@@ -15,7 +15,6 @@ import org.apache.struts2.ServletActionContext;
 import com.google.gson.Gson;
 import com.jiang.gent.bean.User;
 import com.jiang.gent.service.UserServiceImpl;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserAction extends ActionSupport {

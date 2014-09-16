@@ -7,6 +7,10 @@ public class Event {
 	
 	private String name;
 	
+	private int userId;
+	
+	private String note;
+	
 	private Date createTime;
 	
 	private int flag;
@@ -22,6 +26,23 @@ public class Event {
 		this.createTime = createTime;
 		this.flag = flag;
 	}
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -72,3 +72,9 @@ INSERT INTO `user` VALUES ('17', '', 'test', 'shany@meizu.com', '2014-08-17 14:3
 INSERT INTO `user` VALUES ('18', '', 'test', 'chiangtao@sina.com', '2014-08-17 14:50:15', '1');
 INSERT INTO `user` VALUES ('19', '', 'test', 'hello@me.com', '2014-08-17 14:59:34', '1');
 INSERT INTO `user` VALUES ('20', '', 'test', 'test@meizu.com', '2014-08-17 15:15:59', '1');
+
+
+-- add column  userid, note --
+alter table `event` Add column userId int not null;
+ALTER TABLE `event` ADD COLUMN note VARCHAR(150);
+

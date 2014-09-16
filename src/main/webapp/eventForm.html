@@ -1,0 +1,13 @@
+<div class="container" style="padding-top:10px;background:#FFF;box-shadow:0 2px 1px rgba(0,0,0,0.08);">
+	<form class="" method="post" action="/event_addEvent">
+		<legend ng-hide="{{addFlag}}">事件表单</legend>
+		<div class="form-group">
+			<input type="hidden" name="userId" value="{{userId}}">
+			<input type="text" class="form-control  input-lg" placeholder="add title" ng-module="name">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control  input-lg" rows="3" placeholder="add note" ng-module="note"></textarea>
+		</div>
+		 <button type="submit" class="btn btn-primary btn-block btn-lg">添加</button>
+	</form>
+</div>

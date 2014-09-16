@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="com.jiang.gent.dao.EventDao">  
+    <select id="getEventById" parameterType="int" resultType="Event">  
+        select  
+            *  
+        from  
+            `event`  
+        where  
+            id = #{id}  
+    </select>  
+	<insert id="insertEvent" parameterType="Event" useGeneratedKeys="false" keyProperty="id">
+		insert into `event` (name,userid,create_time,note) values(#{name},#{userId},#{createTime},#{note});
+		<selectKey resultType="int" keyProperty="id" order="AFTER"> 
+			select LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+</mapper>  

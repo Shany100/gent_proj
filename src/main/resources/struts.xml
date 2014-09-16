@@ -33,6 +33,15 @@
 			<interceptor-ref name="authority"></interceptor-ref>
 		</action>
 		
+		<action name="event_*" class="com.jiang.gent.action.EventAction" method="{1}">
+			<result name="success">success.jsp</result>
+			<result name="failure">failure.jsp</result>
+			<result name="list">list.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="authority"></interceptor-ref>
+		</action>
+		
+		
 		<!-- user about -->
 		<action name="user_*" class="com.jiang.gent.action.UserAction" method="{1}">
 			<result name="index">/mobile/index.jsp</result>

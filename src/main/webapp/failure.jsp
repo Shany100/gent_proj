@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>操作失败</title>
 </head>
 <body>
-	<h1>未登录</h1>
+	<h1>抱歉，系统出问题了</h1>
 </body>
 </html>

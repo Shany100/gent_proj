@@ -25,11 +25,12 @@
 	
 	userApp.controller('LoginController', ['$scope','loginFactory', function($scope, loginFactory) {
 		
-		console.log("LoginController scope.");
 		$scope.errorTipFlag = loginFlag;
+		$scope.userName = "jantollong@sina.com";
+		$scope.password = "123456";
 		$scope.checked = true;
 		$scope.login = function(userName, password, checked){
-			console.log(loginFactory)
+			alert(userName);
 			if(!userName || !password){
 				$scope.errorTipFlag = true;
 			}else{

@@ -4,4 +4,5 @@ import com.jiang.gent.bean.Event;
 
 public interface EventDao {
 	public Event getEventById(int id);
+	public int insertEvent(Event event);
 }

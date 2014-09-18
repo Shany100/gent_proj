@@ -22,10 +22,10 @@ DROP TABLE IF EXISTS `event`;
 CREATE TABLE `event` (
   `name` varchar(50) DEFAULT NULL,
   `create_time` date DEFAULT NULL,
-  `flag` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL DEFAULT '0',
+  `flag` int(11) DEFAULT 0,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of event
@@ -42,7 +42,7 @@ CREATE TABLE `record` (
   `record_time` date DEFAULT NULL,
   `note` varchar(100) DEFAULT NULL,
   `flag` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of record
@@ -60,7 +60,7 @@ CREATE TABLE `user` (
   `createtime` datetime NOT NULL,
   `flag` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user

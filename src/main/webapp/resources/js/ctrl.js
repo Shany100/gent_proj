@@ -41,7 +41,7 @@
 	  }
 	]);
 	
-	keepApp.controller('EventsController', ['$scope', function($scope){
+	keepApp.controller('EventsController', ['$scope','$http', function($scope, $http){
 		
 		$scope.events = [
 		  {name: 'play basketball', createTime: '', count: 514},
@@ -54,7 +54,14 @@
 		  {name: 'read book', createTime: '', count: 56},
 		  {name: '麻将时间', createTime: '', count: 10}
 		]
-	
+		$http({method: 'GET', url: '/event_listEvents?userId=' + keepConfig.userId}).
+		  success(function(data, status, headers, config){
+			console.log(data)
+			$scope.events = data.data;
+		  }).
+		  error(function(data, status, headers, config) {
+		    
+		  });
 	}]);
 	
 	keepApp.controller('EventFormController', ['$scope', function($scope){

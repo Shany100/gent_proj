@@ -30,7 +30,6 @@
 		$scope.password = "123456";
 		$scope.checked = true;
 		$scope.login = function(userName, password, checked){
-			alert(userName);
 			if(!userName || !password){
 				$scope.errorTipFlag = true;
 			}else{

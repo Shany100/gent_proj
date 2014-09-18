@@ -5,7 +5,7 @@
 	String pageName = request.getParameter("pageModule");
 	//response.getWriter().print("当前页面名称是： "+pageName);
 %>    
-<div class="navbar navbar-default navbar-inverse">
+<div class="navbar navbar-default navbar-inverse" style="border-radius: 0;">
 	<div class="container" ng-controller="toolController">
 	 <div class="navbar-header">
 	    <button type="button" class="navbar-toggle collapsed" ng-click="toggleTool()">

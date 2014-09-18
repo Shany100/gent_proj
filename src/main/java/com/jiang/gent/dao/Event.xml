@@ -17,4 +17,7 @@
 			select LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	<select id="listEvents" resultType="Event">
+		select id, name, create_time, note, userid from event where userid= #{userId}
+	</select>
 </mapper>  

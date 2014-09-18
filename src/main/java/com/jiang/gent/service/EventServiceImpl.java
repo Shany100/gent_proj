@@ -1,6 +1,8 @@
 package com.jiang.gent.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -32,5 +34,20 @@ public class EventServiceImpl {
 		}
 		
 		return flag;
+	}
+	
+	public List<Event> ListEvents(int userId, int page, int limit){
+		SqlSession session = null;
+		List<Event> events = new ArrayList<Event>();
+		try {
+			session = MybatisUtils.getSession();
+			EventDao ed = session.getMapper(EventDao.class);
+			events = ed.listEvents(userId);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return events;
 	}
 }

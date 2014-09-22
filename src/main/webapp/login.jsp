@@ -17,8 +17,7 @@
 <link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
 
 <link href="/resources/css/login.css" rel="stylesheet" >
-
-<script type="text/javascript" src="/resources/js/angular-1.2.21/angular.js"></script>
+<script data-main="/resources/js/main.js" src="/resources/js/requirejs/require.js"></script>
 <script type="text/javascript">
 	var loginFlag = <%=test %>;
 </script>

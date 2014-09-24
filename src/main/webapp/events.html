@@ -1,7 +1,7 @@
 <div class="container">
 	<ul class="list-group">
 	  <li class="list-group-item" ng-repeat='event in events'>
-	    <span class="badge">{{event.count}}</span>
+	    <span class="badge">{{event.count}}{{($index+1) * 54}}</span>
 	   {{event.name}}
 	  </li>
 	</ul>

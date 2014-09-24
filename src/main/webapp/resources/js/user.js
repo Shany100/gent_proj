@@ -1,5 +1,5 @@
 
-define("user", ["angular"], function(angular){
+define(["angular", "utils/util"], function(angular, util){
 
 	return function(){
 		var userApp = angular.module('userApp', []);
@@ -32,6 +32,7 @@ define("user", ["angular"], function(angular){
 			$scope.password = "123456";
 			$scope.checked = true;
 			$scope.login = function(userName, password, checked){
+				alert(util.getRan());
 				if(!userName || !password){
 					$scope.errorTipFlag = true;
 				}else{

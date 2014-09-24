@@ -43,17 +43,6 @@
 	
 	keepApp.controller('EventsController', ['$scope','$http', function($scope, $http){
 		
-		$scope.events = [
-		  {name: 'play basketball', createTime: '', count: 514},
-		  {name: '统计不吃辣', createTime: '', count: 88},
-		  {name: '进城玩耍', createTime: '', count: 14},
-		  {name: 'read book', createTime: '', count: 56},
-		  {name: '麻将时间', createTime: '', count: 10},
-		  {name: '统计不吃辣', createTime: '', count: 88},
-		  {name: '进城玩耍', createTime: '', count: 14},
-		  {name: 'read book', createTime: '', count: 56},
-		  {name: '麻将时间', createTime: '', count: 10}
-		]
 		$http({method: 'GET', url: '/event_listEvents?userId=' + keepConfig.userId}).
 		  success(function(data, status, headers, config){
 			console.log(data)

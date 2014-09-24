@@ -62,6 +62,5 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="/resources/js/user.js"></script>
 </body>
 </html>

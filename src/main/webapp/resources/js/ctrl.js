@@ -31,7 +31,7 @@
 	      	templateUrl: "eventForm.html",
 	      	controller: 'EventFormController'
 	      }).
-	      when('/detail/:eventId/:eventName', {
+	      when('/detail/:eventId', {
 	      	templateUrl: "detail.html",
 	      	controller: 'DetailController'
 	      }).
@@ -58,5 +58,12 @@
 		$scope.addFlag = true;
 	
 	}]);
+	
+	keepApp.controller('DetailController', ['$scope','$http','$routeParams', function($scope, $http, $routeParams){
+		
+		$scope.eventId = $routeParams.eventId;
+		
+	}]);
+	
 })();
 

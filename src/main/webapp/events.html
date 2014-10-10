@@ -1,9 +1,12 @@
 <div class="container">
 	<ul class="list-group">
+	  <li class="list-group-item">
+	    <span class="badge">打卡数</span>
+	    事件名
+	  </li>
 	  <li class="list-group-item" ng-repeat='event in events'>
-	  	<a href="#/detail/{{event.id}}">{{event.name}}</a>
 	    <span class="badge">{{event.count}}{{($index+1) * 54}}</span>
-	   {{event.name}}
+	  	<a href="#/detail/{{event.id}}">{{event.name}}</a>
 	  </li>
 	</ul>
 </div>

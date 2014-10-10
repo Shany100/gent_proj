@@ -6,6 +6,7 @@
   	<typeAliases>  
         <typeAlias alias="Event" type="com.jiang.gent.bean.Event"/>  
         <typeAlias alias="User" type="com.jiang.gent.bean.User"/>  
+        <typeAlias alias="Record" type="com.jiang.gent.bean.Record"/>  
     </typeAliases> 
     <environments default="development">  
         <environment id="development">  
@@ -22,5 +23,6 @@
     <mappers>  
         <mapper resource="com/jiang/gent/dao/Event.xml"/>  
         <mapper resource="com/jiang/gent/dao/User.xml"/>  
+        <mapper resource="com/jiang/gent/dao/Record.xml"/>  
     </mappers>
 </configuration>  

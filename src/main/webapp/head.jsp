@@ -5,7 +5,7 @@
 	String pageName = request.getParameter("pageModule");
 	//response.getWriter().print("当前页面名称是： "+pageName);
 %>    
-<div class="navbar navbar-default navbar-inverse" style="border-radius: 0;">
+<div class="navbar navbar-default navbar-inverse" style="border-radius: 0;margin-bottom:0;">
 	<div class="container" ng-controller="toolController">
 	 <div class="navbar-header">
 	    <button type="button" class="navbar-toggle collapsed" ng-click="toggleTool()">
@@ -19,6 +19,7 @@
 	  <div class="collapse navbar-collapse" ng-show="toolFlag" style="display:block">
 	    <ul class="nav navbar-nav">
 	      <li class="active"><a href="#/events" title="事件列表">事件列表</a></li>
+	      <li ><a href="javascript:void(0);" title="日历视图">日历视图</a></li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
 	      <li><a href="#/eventForm"  title="添加事件"><span class="glyphicon glyphicon-plus"></span></a></li>

@@ -1,5 +1,6 @@
 package com.jiang.gent.bean;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Event {
@@ -11,19 +12,33 @@ public class Event {
 	
 	private String note;
 	
-	private Date createTime;
+	private Timestamp create_time;
 	
 	private int flag;
+	private long createTime;
 	
+
+	public Timestamp getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(Timestamp create_time) {
+		this.create_time = create_time;
+	}
+
+	public void setCreateTime(long createTime) {
+		this.createTime = createTime;
+	}
+
 	public String loveStart;
 	
 	public void Event(){
 		
 	}
 	
-	public void Event(String name, Date createTime, int flag){
+	public void Event(String name, Timestamp createTime, int flag){
 		this.name = name;
-		this.createTime = createTime;
+		this.create_time = createTime;
 		this.flag = flag;
 	}
 	
@@ -59,12 +74,8 @@ public class Event {
 		this.name = name;
 	}
 
-	public Date getCreateTime() {
+	public long getCreateTime() {
 		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
 	}
 
 	public int getFlag() {

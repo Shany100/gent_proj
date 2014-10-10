@@ -50,4 +50,22 @@ public class EventServiceImpl {
 		}
 		return events;
 	}
+	
+	public Event getEvent(int id){
+		SqlSession session = null;
+		Event event = null;
+		try {
+			session = MybatisUtils.getSession();
+			EventDao ed = session.getMapper(EventDao.class);
+			event = ed.getEventById(id);
+			event.setCreateTime(event.getCreate_time().getTime());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return event;
+	}
+	
 }

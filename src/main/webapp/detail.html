@@ -1,3 +1,77 @@
+<style>
+	.detail_top{
+		width:100%;
+		height:160px;
+		/* 蓝色
+		background-color: rgb(51, 102, 204); */
+		padding:10px;
+	}
+	.detail_top .num{
+		color: #fff;
+		line-height: 140px;
+		text-align: center;
+		font-size: 28px;
+		background: #d9534f;
+		width: 140px;
+		border-radius: 50%;
+		margin: 0 auto;
+	}
+	.num-anim{
+		-webkit-animation:numanim linear 1s;
+		-webkit-animation-delay:1.1s;
+	}
+	.detail_content{
+		text-align:center;
+		padding-bottom:20px;
+	}
+	
+	.add-tip{
+		color:#428bca;
+		line-height:30px;
+		font-size:28px;
+		-webkit-animation:tipshow ease-out 1s;
+	}
+	@-webkit-keyframes tipshow{
+		 0% {
+		 	opacity:0;transform:translateY(30px);
+		 }
+		
+		 100% {
+		    opacity:1;transform:translateY(0);
+		 }
+	}
+	@-webkit-keyframes numanim{
+		 0% {
+		 	transform:scale(1,1);
+		 }
+		 50%{
+		 	transform:scale(1.5,1.5);
+		 }
+		 100% {
+		    transform:scale(1,1);
+		 }
+	}
+</style>
+<div class="detail_top">
+	<div class="num {{numAnimation}}">
+		{{totalRecordNum}}
+	</div>
+</div>
 <div class="container">
-	detail.html ? {{eventId}}
+	<div class="detail_content">
+		<h1>{{event.name}}</h1>
+		<h6>{{event.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</h6>
+		<p>notes: {{event.note}}</p>
+		<div ng-show="formShowFlag">
+			<form action="">
+				<div class="form-group">
+					<textarea class="form-control" rows="2" placeholder="记录点什么好..." ng-model="note"></textarea>
+				</div>	
+				<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="takeNote(event)">打卡</button>
+			</form>
+		</div>
+		<div ng-show="tipShowFlag"  class="{{addTipCls}}">
+			Good job! Tomorrow keep on.
+		</div>
+	</div>
 </div>

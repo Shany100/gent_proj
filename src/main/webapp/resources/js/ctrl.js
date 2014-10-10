@@ -62,7 +62,42 @@
 	keepApp.controller('DetailController', ['$scope','$http','$routeParams', function($scope, $http, $routeParams){
 		
 		$scope.eventId = $routeParams.eventId;
-		
+		$scope.totalRecordNum = 98954;
+		$scope.formShowFlag = true;
+		$scope.tipShowFlag = false;
+		$scope.numAnimation = "";
+		$scope.addTipCls = "";
+		$http({method: 'get', url: '/event_getEvent?id=' + $routeParams.eventId}).
+			success(function(data){
+				if(data.success){
+					$scope.event = data.data;
+				}
+			}).
+			error(function(data){
+				
+			});
+		$scope.takeNote = function(event){
+			$http({
+				method: 'post',
+				params:{
+					note:$scope.note,
+					eventId:$routeParams.eventId
+				} , 
+				url: '/record_addRecord' 
+			}).
+			success(function(data){
+				if(data.success){
+					$scope.totalRecordNum++;
+					$scope.formShowFlag = false;
+					$scope.tipShowFlag = true;
+					$scope.numAnimation = "num-anim";
+					$scope.addTipCls = "add-tip";
+				}
+			}).
+			error(function(data){
+				
+			});
+		}
 	}]);
 	
 })();

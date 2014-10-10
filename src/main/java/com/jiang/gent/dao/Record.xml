@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="com.jiang.gent.dao.RecordDao">  
+    <select id="getRecordById" parameterType="int" resultType="Record">  
+        select  
+            id, note, create_time, eventid  
+        from  
+            `event`  
+        where  
+            id = #{id}  
+    </select>  
+	<insert id="insertRecord" parameterType="Record" useGeneratedKeys="false" keyProperty="id">
+		insert into `Record` (note,eventid,record_time) values(#{note},#{eventId},#{record_time});
+		<selectKey resultType="int" keyProperty="id" order="AFTER"> 
+			select LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+</mapper>  

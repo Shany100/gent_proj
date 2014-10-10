@@ -2,6 +2,7 @@ package com.jiang.gent.test;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -54,14 +55,15 @@ public class DaoTest {
 		}finally{
 			session.close();
 		} */
-		User user = new User();
+		/*User user = new User();
 		user.setEmail("shanelman@gmail.com");
 		user.setPassword("123456");
 		ArrayList<User> list = null;
 		SqlSession session = null;
 		session = MybatisUtils.getSession();
 		list = (ArrayList) session.selectList("com.jiang.gent.dao.UserDao.checkUser", user);
-		System.out.println(list.get(0).getId());
+		System.out.println(list.get(0).getId());*/
+		System.out.println(new Timestamp(new Date().getTime()));
 	}
 
 }

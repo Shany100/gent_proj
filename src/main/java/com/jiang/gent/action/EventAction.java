@@ -2,6 +2,7 @@ package com.jiang.gent.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -22,10 +23,17 @@ public class EventAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = -4217148269183900179L;
-	
+	private int id;
 	private String name;
 	private int userId;
 	private String note;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -54,7 +62,7 @@ public class EventAction extends ActionSupport {
 		event.setName(name);
 		event.setNote(note);
 		event.setUserId(userId);
-		event.setCreateTime(new Date());
+		event.setCreate_time(new Timestamp(new Date().getTime()));
 		flag = new EventServiceImpl().addEvent(event);
 		if(flag){
 			return this.SUCCESS;
@@ -78,6 +86,21 @@ public class EventAction extends ActionSupport {
 		}
 		responseMsg(resultMap);
 	}
+	
+	public void getEvent(){
+		Map resultMap = new HashMap();
+		if(id != 0){
+			Event event = new Event();
+			event = new EventServiceImpl().getEvent(id);
+			resultMap.put("success", true);
+			resultMap.put("data",event);
+		}else{
+			resultMap.put("success", false);
+			resultMap.put("msg", "事件错误");
+		}
+		responseMsg(resultMap);
+	}
+	
 	public void responseMsg(Map resultMap){
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("text/html");

@@ -32,7 +32,6 @@ define(["angular", "utils/util"], function(angular, util){
 			$scope.password = "123456";
 			$scope.checked = true;
 			$scope.login = function(userName, password, checked){
-				alert(util.getRan());
 				if(!userName || !password){
 					$scope.errorTipFlag = true;
 				}else{

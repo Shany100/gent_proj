@@ -1,8 +1,12 @@
 package com.jiang.gent.service;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -18,6 +22,7 @@ public class RecordServiceImpl {
 	 * @param record
 	 */
 	public boolean addRecord(Record record){
+		
 		boolean flag = false;
 		SqlSession session = null;
 		
@@ -38,4 +43,42 @@ public class RecordServiceImpl {
 		return flag;
 	}
 	
+	public boolean hasRecord(int eventId){
+		
+		boolean flag = false;
+		SqlSession session = null;
+		
+		try {
+			session = MybatisUtils.getSession();
+			RecordDao rd = session.getMapper(RecordDao.class);
+			Map paramMap = new HashMap();
+			paramMap.put("eventId", eventId);
+			paramMap.put("today", new Timestamp(new Date().getTime()));
+			
+			List<Record> records= rd.getRecordByMap(paramMap);
+			if(records != null && records.size() > 0){
+				flag = true;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		
+		return flag;
+	}
+	
+	public List<Record> listRecordsByEventId(int eventId){
+		List<Record> records = new ArrayList<Record>();
+		SqlSession session = null;
+		
+		try {
+			session = MybatisUtils.getSession();
+			RecordDao rd = session.getMapper(RecordDao.class);
+			records = rd.listRecordsByEventId(eventId);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return records;
+	}
 }

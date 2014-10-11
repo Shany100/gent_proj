@@ -8,6 +8,7 @@ public interface EventDao {
 	public Event getEventById(int id);
 	public int insertEvent(Event event);
 	public List<Event> listEvents(int userId);
+	public Event getEventRecords(int id);
 	
 	//public List<Event> listEvents(int userId, int page, int limit); // 参数问题
 }

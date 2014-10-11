@@ -39,9 +39,11 @@ DROP TABLE IF EXISTS `record`;
 CREATE TABLE `record` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `event_name` varchar(50) DEFAULT NULL,
+  `eventId` int(11) NOT NULL,
   `record_time` timestamp NOT NULL,
   `note` varchar(100) DEFAULT NULL,
-  `flag` int(11) DEFAULT NULL
+  `flag` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -77,5 +79,3 @@ INSERT INTO `user` VALUES ('20', '', 'test', 'test@meizu.com', '2014-08-17 15:15
 -- add column  userid, note --
 alter table `event` Add column userId int not null;
 ALTER TABLE `event` ADD COLUMN note VARCHAR(150);
-
-ALTER TABLE `record` ADD COLUMN eventId INT NOT NULL;

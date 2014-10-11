@@ -5,13 +5,16 @@ import java.io.Reader;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.google.gson.Gson;
 import com.jiang.gent.bean.Event;
 import com.jiang.gent.bean.User;
 import com.jiang.gent.dao.UserDao;
@@ -64,6 +67,17 @@ public class DaoTest {
 		list = (ArrayList) session.selectList("com.jiang.gent.dao.UserDao.checkUser", user);
 		System.out.println(list.get(0).getId());*/
 		System.out.println(new Timestamp(new Date().getTime()));
+		
+		ArrayList<User> list = null;
+		SqlSession session = null;
+		Map paramMap = new HashMap();
+		paramMap.put("eventId", 11);
+		paramMap.put("today", new Timestamp(new Date().getTime()));
+		
+		session = MybatisUtils.getSession();
+		List event = session.selectList("com.jiang.gent.dao.RecordDao.getRecordByEventId", paramMap );
+		System.out.println(event.size());
+		System.out.println(new Gson().toJson(event));
 	}
 
 }

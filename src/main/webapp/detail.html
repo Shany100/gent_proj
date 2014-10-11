@@ -62,7 +62,7 @@
 		<h1>{{event.name}}</h1>
 		<h6>{{event.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</h6>
 		<p>notes: {{event.note}}</p>
-		<div ng-show="formShowFlag">
+		<div ng-show="formShowFlag" ng-hide="todayHasRecordFlag">
 			<form action="">
 				<div class="form-group">
 					<textarea class="form-control" rows="2" placeholder="记录点什么好..." ng-model="note"></textarea>
@@ -73,5 +73,23 @@
 		<div ng-show="tipShowFlag"  class="{{addTipCls}}">
 			Good job! Tomorrow keep on.
 		</div>
+	</div>
+	<div>
+		<table class="table table-condensed">
+		 <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>打卡时间</th>
+	          <th>记录描述</th>
+	        </tr>
+	     </thead>
+	      <tbody>
+	        <tr ng-repeat="record in records">
+	          <td>{{$index+1}}</td>
+	          <td>{{record.recordTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+	          <td>{{record.note}}</td>
+	        </tr>
+	      </tbody>
+		</table>
 	</div>
 </div>

@@ -8,8 +8,15 @@ public class Record {
 	private int eventId;
 	private int id;
 	private Timestamp record_time;
+	private long recordTime;
 	private String note;
 	
+	public long getRecordTime() {
+		return recordTime;
+	}
+	public void setRecordTime(long recordTime) {
+		this.recordTime = recordTime;
+	}
 	public String getNote() {
 		return note;
 	}
@@ -33,6 +40,7 @@ public class Record {
 	}
 	public void setRecord_time(Timestamp record_time) {
 		this.record_time = record_time;
+		this.setRecordTime(record_time.getTime());
 	}
 	
 }

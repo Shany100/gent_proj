@@ -69,8 +69,12 @@
 		$scope.addTipCls = "";
 		$http({method: 'get', url: '/event_getEvent?id=' + $routeParams.eventId}).
 			success(function(data){
+				console.log(data)
 				if(data.success){
 					$scope.event = data.data;
+					$scope.records = data.data.records;
+					$scope.totalRecordNum = data.data.records.length;
+					$scope.todayHasRecordFlag = data.todayHasRecordFlag;
 				}
 			}).
 			error(function(data){

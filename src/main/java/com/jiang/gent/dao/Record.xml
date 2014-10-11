@@ -5,16 +5,27 @@
 <mapper namespace="com.jiang.gent.dao.RecordDao">  
     <select id="getRecordById" parameterType="int" resultType="Record">  
         select  
-            id, note, create_time, eventid  
+            id, note, record_time, eventid  
         from  
-            `event`  
+            `record`  
         where  
             id = #{id}  
     </select>  
+    <select id="getRecordByMap" parameterType="Map" resultType="Record">  
+        select  
+            id, note, record_time, eventid  
+        from  
+            `record`  
+        where  
+            eventid = #{eventId}  and DATE(record_time) = Date(#{today});
+    </select> 
 	<insert id="insertRecord" parameterType="Record" useGeneratedKeys="false" keyProperty="id">
 		insert into `Record` (note,eventid,record_time) values(#{note},#{eventId},#{record_time});
 		<selectKey resultType="int" keyProperty="id" order="AFTER"> 
 			select LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	<select id="listRecordsByEventId" parameterType="int" resultType="Record">
+		SELECT id, eventid, record_time, note FROM record WHERE eventid = #{eventId};
+	</select>
 </mapper>  

@@ -2,6 +2,7 @@ package com.jiang.gent.bean;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 public class Event {
 	private int id;
@@ -17,6 +18,15 @@ public class Event {
 	private int flag;
 	private long createTime;
 	
+	private List<Record> records;
+
+	public List<Record> getRecords() {
+		return records;
+	}
+
+	public void setRecords(List<Record> records) {
+		this.records = records;
+	}
 
 	public Timestamp getCreate_time() {
 		return create_time;

@@ -3,6 +3,7 @@ package com.jiang.gent.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,12 +52,18 @@ public class RecordAction extends ActionSupport {
 		Map resultMap = new HashMap();
 		Record record = new Record();
 		if(eventId != 0){
-			record.setEventId(eventId);
-			record.setNote(note);
-			record.setRecord_time(new Timestamp(System.currentTimeMillis()));
-			boolean flag = new RecordServiceImpl().addRecord(record);
-			resultMap.put("success", true);
-			resultMap.put("data", flag);
+			boolean flag = false;
+			RecordServiceImpl rsi = new RecordServiceImpl();
+			flag = rsi.hasRecord(eventId);
+			if(!flag){
+				record.setEventId(eventId);
+				record.setNote(note);
+				record.setRecord_time(new Timestamp(System.currentTimeMillis()));
+			}
+			
+			flag = rsi.addRecord(record);
+			resultMap.put("success", flag);
+			resultMap.put("msg", flag);
 		}else{
 			resultMap.put("success", false);
 			resultMap.put("msg", "添加失败");

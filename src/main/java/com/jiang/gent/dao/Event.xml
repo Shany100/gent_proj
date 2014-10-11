@@ -3,6 +3,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
   
 <mapper namespace="com.jiang.gent.dao.EventDao">  
+	<resultMap type="Event" id="EventResult">  
+        <id property="id" column="event_id"/>  
+        <result property="name" column="event_name"/>  
+        <result property="userId" column="userId"/>  
+        <result property="create_time" column="create_time"/>
+        <result property="note" column="event_note"/>
+        <collection property="records" resultMap="RecordResult" ofType="Record"/>  
+	</resultMap>  
+	<resultMap type="Record" id="RecordResult">  
+        <id property="id" column="id"/>  
+        <result property="record_time" column="record_time"/>
+        <result property="note" column="note"/>
+        <result property="eventId" column="eventId" />  
+	</resultMap>
     <select id="getEventById" parameterType="int" resultType="Event">  
         select  
             *  
@@ -20,4 +34,12 @@
 	<select id="listEvents" resultType="Event">
 		select id, name, create_time, note, userid from event where userid= #{userId}
 	</select>
+	
+	<select id="getEventRecords" parameterType="int" resultMap="EventResult">
+		SELECT e.id event_id, e.name event_name,e.note event_note,e.create_time, e.userid
+			, r.id,r.note, r.record_time, r.eventid 
+		FROM `event` e LEFT JOIN record r ON r.eventid = e.`id` WHERE e.id = #{id};
+	</select>
+	
+	 
 </mapper>  

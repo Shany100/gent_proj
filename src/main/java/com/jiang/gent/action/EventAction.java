@@ -15,6 +15,7 @@ import org.apache.struts2.ServletActionContext;
 import com.google.gson.Gson;
 import com.jiang.gent.bean.Event;
 import com.jiang.gent.service.EventServiceImpl;
+import com.jiang.gent.service.RecordServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class EventAction extends ActionSupport {
@@ -90,9 +91,13 @@ public class EventAction extends ActionSupport {
 	public void getEvent(){
 		Map resultMap = new HashMap();
 		if(id != 0){
+			boolean flag = false;
 			Event event = new Event();
-			event = new EventServiceImpl().getEvent(id);
+			event = new EventServiceImpl().getEventRecords(id); // getEvent
+			RecordServiceImpl rsi = new RecordServiceImpl();
+			flag = rsi.hasRecord(id);
 			resultMap.put("success", true);
+			resultMap.put("todayHasRecordFlag", flag);
 			resultMap.put("data",event);
 		}else{
 			resultMap.put("success", false);

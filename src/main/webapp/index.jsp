@@ -30,6 +30,8 @@
 </div>
 
 <div ng-view></div>
+
+<jsp:include page="/foot.jsp"></jsp:include>
 <script type="text/javascript" src="/resources/js/ctrl.js"></script>
 </body>
 </html>

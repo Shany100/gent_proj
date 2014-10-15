@@ -10,15 +10,18 @@
 	String email = user.getEmail();
 	int userId = user.getId();
 %>    
-<html ng-app="keepApp">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" >
 <title>Keep - Welcome</title>
 <link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
-<script type="text/javascript" src="/resources/js/angular-1.2.21/angular.js"></script>
-<script type="text/javascript" src="/resources/js/angular-1.2.21/angular-route.js"></script>
+
+<script src="/resources/components/requirejs/require.js"></script>
+
+
 <script type="text/javascript">var userId=<%=userId%>;</script>
+
 <link rel="stylesheet" href="/resources/css/base.css">
 </head>
 <body>
@@ -32,6 +35,6 @@
 <div ng-view></div>
 
 <jsp:include page="/foot.jsp"></jsp:include>
-<script type="text/javascript" src="/resources/js/ctrl.js"></script>
+<script type="text/javascript" src="/resources/js/app.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-(function(){
+define(['angular', 'angular-route'], function(angular){
 	var keepConfig = (function(id){
 		return {
 			userId: id
@@ -19,6 +19,11 @@
 			}
 		}
 	}]);
+	// remove 'ng-app="keepApp"'  because angular-route unable to instantiate module when loaded using RequireJS.  
+	// 参考： https://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap #Manual Initialization#
+	angular.element(document).ready(function () {
+        angular.bootstrap(document, ['keepApp']);
+    });
 	
 	keepApp.config(['$routeProvider', 
 	  function($routeProvider) {
@@ -104,5 +109,5 @@
 		}
 	}]);
 	
-})();
-
+	return {keepApp: true};
+});

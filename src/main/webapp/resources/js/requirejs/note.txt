@@ -1,5 +1,0 @@
-// latest version
-
-http://requirejs.org/docs/release/2.1.15/comments/require.js
-
-http://requirejs.org/docs/release/2.1.15/minified/require.js

@@ -1,24 +1,25 @@
 
 // 程序主入口 
 
-require.config({
-    //配置angular的路径
-    paths:{
-        "angular":"angular-1.2.21/angular", 
-        "angular-route":"angular-1.2.21/angular-route"
-    },
-    //这个配置是你在引入依赖的时候的包名
-    shim:{
-        "angular":{
+requirejs.config({
+	baseUrl: '/resources',
+	paths:{
+		'angular': "components/angular-1.2.21/angular",
+		'angular-route': "components/angular-1.2.21/angular-route",
+		'calendar': 'components/calendar/calendar',
+		'util': 'js/utils/util'
+	},
+	shim:{
+		"angular":{
             exports:"angular"
         },
         "angular-route":{
-            exports:"angular-route"
+        	deps: ['angular']
         }
     }
 });
 
-require(["user"], function(user){
+require(["js/user"], function(user){
 	new user();
 });
 

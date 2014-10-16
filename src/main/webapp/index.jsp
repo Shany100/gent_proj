@@ -15,7 +15,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" >
 <title>Keep - Welcome</title>
-<link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
+<link href="/resources/components/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
 
 <script src="/resources/components/requirejs/require.js"></script>
 

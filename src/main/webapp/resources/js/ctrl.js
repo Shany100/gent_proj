@@ -1,4 +1,4 @@
-define(['angular', 'angular-route'], function(angular){
+define(['angular', 'angular-route'], function(angular, angularroute , calendar){
 	var keepConfig = (function(id){
 		return {
 			userId: id
@@ -19,8 +19,11 @@ define(['angular', 'angular-route'], function(angular){
 			}
 		}
 	}]);
-	// remove 'ng-app="keepApp"'  because angular-route unable to instantiate module when loaded using RequireJS.  
-	// 参考： https://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap #Manual Initialization#
+	/**
+	 * remove 'ng-app="keepApp"'  because angular-route unable to instantiate module when loaded using RequireJS. 
+	 * 参考： https://code.angularjs.org/1.2.1/docs/guide/bootstrap#overview_deferred-bootstrap 
+	 * #Manual Initialization#
+	 */  
 	angular.element(document).ready(function () {
         angular.bootstrap(document, ['keepApp']);
     });
@@ -63,51 +66,6 @@ define(['angular', 'angular-route'], function(angular){
 		$scope.addFlag = true;
 	
 	}]);
-	
-	keepApp.controller('DetailController', ['$scope','$http','$routeParams', function($scope, $http, $routeParams){
 		
-		$scope.eventId = $routeParams.eventId;
-		$scope.totalRecordNum = 98954;
-		$scope.formShowFlag = true;
-		$scope.tipShowFlag = false;
-		$scope.numAnimation = "";
-		$scope.addTipCls = "";
-		$http({method: 'get', url: '/event_getEvent?id=' + $routeParams.eventId}).
-			success(function(data){
-				console.log(data)
-				if(data.success){
-					$scope.event = data.data;
-					$scope.records = data.data.records;
-					$scope.totalRecordNum = data.data.records.length;
-					$scope.todayHasRecordFlag = data.todayHasRecordFlag;
-				}
-			}).
-			error(function(data){
-				
-			});
-		$scope.takeNote = function(event){
-			$http({
-				method: 'post',
-				params:{
-					note:$scope.note,
-					eventId:$routeParams.eventId
-				} , 
-				url: '/record_addRecord' 
-			}).
-			success(function(data){
-				if(data.success){
-					$scope.totalRecordNum++;
-					$scope.formShowFlag = false;
-					$scope.tipShowFlag = true;
-					$scope.numAnimation = "num-anim";
-					$scope.addTipCls = "add-tip";
-				}
-			}).
-			error(function(data){
-				
-			});
-		}
-	}]);
-	
-	return {keepApp: true};
+	return keepApp;
 });

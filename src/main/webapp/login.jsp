@@ -14,10 +14,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" >
 <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE">
 <title>login - Keep</title>
-<link href="/resources/js/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
+<link href="/resources/components/bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet" >
 
 <link href="/resources/css/login.css" rel="stylesheet" >
-<script data-main="/resources/js/main.js" src="/resources/js/requirejs/require.js"></script>
+<script data-main="/resources/js/main.js" src="/resources/components/requirejs/require.js"></script>
 <script type="text/javascript">
 	var loginFlag = <%=test %>;
 </script>

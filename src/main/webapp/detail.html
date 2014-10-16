@@ -31,6 +31,9 @@
 		font-size:28px;
 		-webkit-animation:tipshow ease-out 1s;
 	}
+	.list-wrap{
+		font-size: 
+	}
 	@-webkit-keyframes tipshow{
 		 0% {
 		 	opacity:0;transform:translateY(30px);
@@ -51,12 +54,14 @@
 		    transform:scale(1,1);
 		 }
 	}
+
 </style>
 <div class="detail_top">
 	<div class="num {{numAnimation}}">
 		{{totalRecordNum}}
 	</div>
 </div>
+<div ng-include src="'/resources/components/calendar/calendar.html'"></div>
 <div class="container">
 	<div class="detail_content">
 		<h1>{{event.name}}</h1>
@@ -74,7 +79,7 @@
 			Good job! Tomorrow keep on.
 		</div>
 	</div>
-	<div>
+	<div class="list-wrap">
 		<table class="table table-condensed">
 		 <thead>
 	        <tr>
@@ -86,7 +91,8 @@
 	      <tbody>
 	        <tr ng-repeat="record in records">
 	          <td>{{$index+1}}</td>
-	          <td>{{record.recordTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+	          <!-- 'yyyy-MM-dd HH:mm:ss' 字符太长 -->
+	          <td>{{record.recordTime | date:'MM-dd HH:mm'}}</td>
 	          <td>{{record.note}}</td>
 	        </tr>
 	      </tbody>

@@ -1,5 +1,5 @@
 
-define(["angular", "utils/util"], function(angular, util){
+define(["angular", "util"], function(angular, util){
 
 	return function(){
 		var userApp = angular.module('userApp', []);

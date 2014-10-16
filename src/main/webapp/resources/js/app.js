@@ -4,7 +4,8 @@ requirejs.config({
 	baseUrl: '/resources',
 	paths:{
 		'angular': "components/angular-1.2.21/angular",
-		'angular-route': "components/angular-1.2.21/angular-route"
+		'angular-route': "components/angular-1.2.21/angular-route",
+		'calendar': 'components/calendar/calendar'
 	},
 	shim:{
 		"angular":{
@@ -16,7 +17,7 @@ requirejs.config({
     }
 });
 
-require(['js/ctrl'],function(ctrl){
-	console.log("app load ctrl.js");
-	console.log(ctrl);
+require(['js/controllers/detailController'],function(keepApp){
+	
+	
 });

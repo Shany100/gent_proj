@@ -1,0 +1,63 @@
+<style type="text/css">
+	.calc-wrap{
+		margin:0 auto;
+		padding: 10px;
+	}
+	.list{
+		width: 100%;
+		text-align: center;
+	}
+	@media screen and (min-width:420px){
+		.calc-wrap{width: 420px;}
+	}
+	.col-head{
+		font-size: 14px;
+	}
+	.list th{
+		height: 40px;text-align: center;
+	}
+	.item{
+		display: inline-block;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		border-radius: 50%;
+		transition: all linear .35s;
+	}
+	.item.cur{
+		background: #22CDA6;
+		color: #fff;
+		cursor: pointer;
+	}
+	.link{
+		text-decoration:none;
+		color:#329CE8;
+	}
+	.link:hover{
+		text-decoration:underline;
+	}
+</style>
+<div ng-controller="CalendarController">
+	<div class="calc-wrap">
+		<table class="list" align="center" >
+			<thead>
+				<tr>
+					<th><a href="javascript:void(0);" class="link" title="上一月" ng-click="previous(-1)">&lt;&lt;</a></th>
+					<th colspan="3">{{curDate}}</th>
+					<th colspan="2"><a href="javascript:void(0);" class="link" title="下一月" ng-click="previous(0)">today</a></th>
+					<th><a href="javascript:void(0);" class="link" title="下一月" ng-click="previous(1)">&gt;&gt;</a></th>
+				</tr>
+				<tr>
+					<th ng-repeat="day in days" class="col-head">{{day}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items">
+					<td ng-repeat="it in item track by $index">
+						<span class="item {{it == today && month==curmonth ? 'cur':''}}">{{it}}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

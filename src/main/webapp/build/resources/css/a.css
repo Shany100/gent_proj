@@ -1,0 +1,8 @@
+a{
+ transition :-webkit-transform 1s;
+ transition :transform 1s;
+ border-radius: 5px;
+ display:-webkit-flex;
+ display:-ms-flexbox;
+ display:flex;
+}
